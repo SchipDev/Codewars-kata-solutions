@@ -1,0 +1,1 @@
+This repo contains solutions for some of the Codewars Katas I have completed.
