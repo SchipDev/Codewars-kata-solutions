@@ -36,3 +36,43 @@ function findOutlier(integers) {
     else return odd[0]
 }
 //-----------------------------------------------------------------------------------------------------------------
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+
+/*
+Return the sum of all numbers below the givn number that are a multiple of 3 or 5
+*/
+function solution(number) {
+    let sum = 0
+    for (let i = 0; i < number; i++) {
+        if (i % 3 == 0 || i % 5 == 0) {
+            sum += i
+        }
+    }
+    return sum
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+If given 'abc' should return 'A-Bb-Ccc'
+*/
+function accum(s) {
+    let split = s.split('')
+    return split.reduce((acc, val, ind) => {
+        let str = ''
+        for (let i = 0; i < ind; i++) {
+            str += s[ind]
+        }
+        if (ind === s.length - 1) {
+            return acc + s[ind].toUpperCase() + str.toLowerCase()
+        }
+        return acc + s[ind].toUpperCase() + str.toLowerCase() + '-';
+    }, '')
+}
+//-----------------------------------------------------------------------------------------------------------------
