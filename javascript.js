@@ -76,3 +76,47 @@ function accum(s) {
     }, '')
 }
 //-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+Generate a christmas tree of the specified height
+for example, height = 3     
+       *
+      ***
+     *****
+*/
+function christmasTree(height) {
+    let tree = ''
+    let refHeight = height - 1
+    let starNum = 1
+    for (let i = 0; i < height; i++) {
+        if (i == height - 1) {
+            tree += ' '.repeat(refHeight) + "*".repeat(starNum) + ' '.repeat(refHeight)
+        }
+        else {
+            tree += ' '.repeat(refHeight) + "*".repeat(starNum) + ' '.repeat(refHeight) + '\n'
+        }
+        refHeight--
+        starNum += 2
+    }
+    return tree
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+Return the length of the shortest word in the string
+*/
+function findShort(str) {
+    var split = str.split(' ');
+    var shortest = split.reduce((shortestWord, currentWord) => {
+        return currentWord.length < shortestWord.length ? currentWord : shortestWord;
+    }, split[0]);
+    return shortest.length;
+}
+//-----------------------------------------------------------------------------------------------------------------
