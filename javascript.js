@@ -120,3 +120,39 @@ function findShort(str) {
     return shortest.length;
 }
 //-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+Returns the longest combination of k consecutive strings in the string array strarr.
+*/
+function longestConsec(strarr, k) {
+    if (strarr.length === 0 || k > strarr.length || k <= 0) return '';
+    let lengthsArr = strarr.map(elem => {
+      return elem.length
+    })
+  
+    let currMax = 0
+    let currSum;
+    let strSeqStartPoint = 0
+    for (let i = 0; i <= lengthsArr.length - k; i++) {
+      currSum = 0
+      for (j = 0; j < k; j++) {
+        currSum += lengthsArr[i + j]
+        if (currSum > currMax) {
+          currMax = currSum
+          strSeqStartPoint = i
+        }
+      }
+      console.log(currSum, currMax, strSeqStartPoint)
+    }
+    let res = ''
+    for (i = 0; i < k; i++) {
+      res += strarr[strSeqStartPoint + i]
+    }
+    return res
+  }
+  //-----------------------------------------------------------------------------------------------------------------
+
