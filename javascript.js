@@ -169,5 +169,48 @@ function halvingSum(n) {
     }
     return n + Math.floor(halvingSum(n / (denom * 2)))
 }
-  //-----------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+Rate the baker!
+Pete likes to bake some cakes. He has some recipes and ingredients. Unfortunately he is not good in maths. Can you help him to find out, how many cakes he could bake considering his recipes?
+Write a function cakes(), which takes the recipe (object) and the available ingredients (also an object) and returns the maximum number of cakes Pete can bake (integer). 
+For simplicity there are no units for the amounts (e.g. 1 lb of flour or 200 g of sugar are simply 1 or 200). Ingredients that are not present in the objects, can be considered as 0.
+*/
+
+function cakes(recipe, available) {
+    let ing = Object.getOwnPropertyNames(recipe)
+    let availIng = Object.getOwnPropertyNames(available)
+    let hasAllIngreds = true
+    let ingredQuotes = []
+    ing.forEach((elem, ind) => {
+        if (!availIng.includes(elem)) {
+            hasAllIngreds = false
+        }
+        if (hasAllIngreds) {
+            ingredQuotes.push(Math.floor(available[elem] / recipe[elem]))
+        }
+    })
+    return hasAllIngreds ? Math.min(...ingredQuotes) : 0
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+You must implement a function maxDiff that return the difference between the biggest and the smallest value in a list(lst) received as parameter.
+The list(lst) contains integers, that means it may contain some negative numbers.
+If the list is empty or contains a single element, return 0.
+The list(lst) is not sorted.
+*/
+
+function maxDiff(list) {
+    return list.length > 1 ? Math.max(...list) - Math.min(...list) : 0
+}
+//-----------------------------------------------------------------------------------------------------------------
+
 
