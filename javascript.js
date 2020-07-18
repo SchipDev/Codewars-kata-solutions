@@ -157,6 +157,8 @@ function longestConsec(strarr, k) {
 //-----------------------------------------------------------------------------------------------------------------
 
 
+
+
 //-----------------------------------------------------------------------------------------------------------------
 
 
@@ -212,5 +214,49 @@ function maxDiff(list) {
     return list.length > 1 ? Math.max(...list) - Math.min(...list) : 0
 }
 //-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+In this Kata, you will be given a string that may have mixed uppercase and lowercase letters and your task is to convert that string to either lowercase only or uppercase only based on:
+make as few changes as possible.
+if the string contains equal number of uppercase and lowercase letters, convert the string to lowercase.
+*/
+function solve(s) {
+    let numUpper = (s.match(/[A-Z]/g) || []).length;
+    let numLower = (s.match(/[a-z]/g) || []).length;
+    return numUpper > numLower ? s.toUpperCase() : s.toLowerCase()
+}
+//-----------------------------------------------------------------------------------------------------------------
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. 
+If there is no index that would make this happen, return -1.
+*/
+function findEvenIndex(arr){
+    let sum1 = 0
+    let sum2 = 0
+    let evenInd = -1
+    for (let i = 0; i < arr.length; i++) {
+      for (let j = 0; j < i; j++) {
+        sum1 += arr[j]
+      }
+      for (let k = i+1; k < arr.length; k++) {
+        sum2 += arr[k]
+      }
+      if (sum1 == sum2) evenInd = i
+      sum1 = 0
+      sum2 = 0
+    }
+    return evenInd
+  }
+  //-----------------------------------------------------------------------------------------------------------------
+
 
 
