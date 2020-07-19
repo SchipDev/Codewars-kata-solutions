@@ -239,23 +239,23 @@ function solve(s) {
 You are going to be given an array of integers. Your job is to take that array and find an index N where the sum of the integers to the left of N is equal to the sum of the integers to the right of N. 
 If there is no index that would make this happen, return -1.
 */
-function findEvenIndex(arr){
+function findEvenIndex(arr) {
     let sum1 = 0
     let sum2 = 0
     let evenInd = -1
     for (let i = 0; i < arr.length; i++) {
-      for (let j = 0; j < i; j++) {
-        sum1 += arr[j]
-      }
-      for (let k = i+1; k < arr.length; k++) {
-        sum2 += arr[k]
-      }
-      if (sum1 == sum2) evenInd = i
-      sum1 = 0
-      sum2 = 0
+        for (let j = 0; j < i; j++) {
+            sum1 += arr[j]
+        }
+        for (let k = i + 1; k < arr.length; k++) {
+            sum2 += arr[k]
+        }
+        if (sum1 == sum2) evenInd = i
+        sum1 = 0
+        sum2 = 0
     }
     return evenInd
-  }
+}
 //-----------------------------------------------------------------------------------------------------------------
 
 
@@ -266,16 +266,30 @@ In this Kata, you will be given an array of integers whose elements have both a 
 for one integer that is either only negative or only positive. Your task will be to find that integer.
 */
 
-  function solve(arr){
+function solve(arr) {
     let res = 0
     arr.forEach(elem => {
-      if (!arr.includes(-elem)) {
-        res = elem
-      }
+        if (!arr.includes(-elem)) {
+            res = elem
+        }
     })
     return res
 };
 //-----------------------------------------------------------------------------------------------------------------
+
+
+
+
+//-----------------------------------------------------------------------------------------------------------------
+/*
+Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string on the outside and the longer string on 
+the inside. The strings will not be the same length, but they may be empty ( length 0 ).
+*/
+function solution(a, b) {
+    return a.length < b.length ? a + b + a : b + a + b
+}
+//-----------------------------------------------------------------------------------------------------------------
+
 
 
 
